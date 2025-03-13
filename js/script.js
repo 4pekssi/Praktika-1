@@ -1,25 +1,26 @@
-const circles = [
-    { id: 'circle1', textId: 'text1', top: '', left: '0' },
-    { id: 'circle2', textId: 'text2', top: '', left: '0' },
-    { id: 'circle3', textId: 'text3', top: '', left: '0' }
-];
+const slides = document.querySelectorAll('.slide');
+        const indicators = document.querySelectorAll('.indicator');
+        let currentIndex = 0;
 
-let currentIndex = 0;
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('active', i === index);
+            });
+        }
 
-function moveCircles() {
-    circles.forEach((circle, index) => {
-        const nextIndex = (index + 1) % circles.length;
-        const circleElement = document.getElementById(circle.id);
-        const textElement = document.getElementById(circle.textId);
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
 
-        const nextCircle = circles[nextIndex];
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                showSlide(currentIndex);
+            });
+        });
 
-        circleElement.style.transform = `translate(${nextCircle.left}, ${nextCircle.top})`;
-        textElement.style.transform = `translate(${parseInt(nextCircle.left) + 10}px, ${nextCircle.top})`;
-        textElement.style.opacity = '1';
-    });
-
-    currentIndex = (currentIndex + 1) % circles.length;
-}
-
-setInterval(moveCircles, 3000); // Меняем позиции каждые 3 секунды
+        setInterval(nextSlide, 5000);
