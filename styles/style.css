@@ -1,7 +1,7 @@
 /* Общие стили */
 /* *{
     outline: 4px solid green !important;
-} */
+}  */
 
 .link {
     text-decoration: none;
@@ -95,6 +95,21 @@ body {
     position: relative;
 }
 
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
 .one-screen-right-side-header {
     display: flex;
     justify-content: space-between;
@@ -133,6 +148,8 @@ li {
     margin: 0;
 }
 
+
+
 .login-registration {
     background-color: #194DD2;
     height: 100%;
@@ -141,26 +158,12 @@ li {
     color: white;
 }
 
-.slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-    background-size: cover;
-    background-position: center;
-}
-
 .slide.active {
     opacity: 1;
 }
 
 .one-screen-wrapper {
     width: 80%;
-
     color: #FFFFFF;
 }
 
@@ -206,6 +209,178 @@ li {
     border-color: #ffffff;
 }
 
+.open {
+    display: flex !important;
+}
+
+.gamb-ico {
+    display: flex;
+    position: relative;
+    z-index: 50;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30px;
+    height: 18px;
+}
+
+.gamb-ico span {
+    height: 2px;
+    width: 80%;
+    transform: scale(1);
+    background-color: #FFFFFF;
+}
+
+.gamb-ico::before,
+.gamb-ico::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #FFFFFF;
+    transform: all 0.3s ease 0s;
+}
+
+.gamb-ico::before {
+    top: 0;
+}
+
+.gamb-ico::after {
+    bottom: 0;
+}
+
+.gamb-ico.active span {
+    transform: scale(0)
+}
+
+.gamb-ico.active::before {
+    top: 50%;
+    transform: rotate(-45deg) 
+    translate(0, -50%);
+}
+
+.gamb-ico.active::after {
+    bottom: 50%;
+    transform: rotate(45deg) 
+    translate(0, 50%);
+}
+
+@media(max-width: 1170px) {
+    .right-side-header-ul-li {
+        width: 100%;
+    }
+
+    .indicators {
+        right: 50px;
+    }
+}
+
+@media(max-width: 1400px) {
+    .one-screen-left-side {
+        display: none;
+    }
+
+    .one-screen-right-side {
+        width: 100%;
+    }
+
+    .slide {
+        justify-content: normal;
+    }
+
+    .one-screen-wrapper {
+        max-width: 878px;
+        margin-left: 50px;
+    }
+}
+
+@media(min-width: 780px) {
+    .gamb-ico {
+        display: none;
+    }
+}
+
+@media(max-width: 780px) {
+    .right-side-header-ul-li {
+        display: none;
+    }
+
+    .os-rs-header-ul {
+        justify-content: flex-start;
+        margin-left: 15px;
+    }
+
+    .right-side-header-ul-li {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        overflow-y: auto;
+        padding: 50px 40px;
+        background-color: Black;
+        animation: gambicoAnimation 0.4s;
+    }
+
+    @keyframes gambicoAnimation {
+        from {
+            opacity: 0
+        }
+
+        to {
+            opacity: 1
+        }
+    }
+
+    .right-side-header-ul-li ul {
+        flex-direction: column;
+        row-gap: 30px;
+    }
+
+    .login-registration {
+        width: 70%;
+    }
+
+    body.no-scroll {
+        overflow: hidden; 
+    }
+}
+
+@media(max-width: 600px) {
+    .indicators {
+        right: 10px;
+    }
+
+    .one-screen-wrapper h1 {
+        width: 100%;
+        font-size: 37px;
+    }
+}
+
+@media(max-width: 400px) {
+    .one-screen-wrapper h1 {
+        width: 100%;
+        font-size: 30px;
+    }
+
+    .one-screen-wrapper p {
+        font-size: 16px;
+    }
+
+    .one-screen-wrapper {
+        margin-left: 20px;
+    }
+
+    .calculator-button1 {
+        margin-top: 30px;
+    }
+}
+
+
 /* ------------------------------------------------- */
 /* ------------------two-screen--------------------- */
 /* ------------------------------------------------- */
@@ -250,7 +425,6 @@ li {
 }
 
 @media (max-width: 1440px) {
-    .two-screen-top {}
 
     .img-group {
         position: absolute;
@@ -357,8 +531,8 @@ li {
     transition: background-color 0.4s, color 0.4s;
 }
 
-@media(max-width: 500px){
-    .button-two-screen{
+@media(max-width: 500px) {
+    .button-two-screen {
         width: 100%;
     }
 }
@@ -536,9 +710,6 @@ li {
     width: 468px;
 }
 
-
-
-
 .font-30 {
     font-size: 18px;
     color: #ffffff;
@@ -583,6 +754,25 @@ li {
 
     .font-40 {
         font-size: 37px;
+    }
+}
+
+@media (max-width: 666px) {
+
+    .container {
+        display: none;
+    }
+
+    .text-circles {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 10px 0 10px
+    }
+
+    .font-30,
+    .font-31 {
+        text-align: center;
     }
 }
 
@@ -881,6 +1071,10 @@ li {
     margin-top: 6.17rem;
 }
 
+.font-42 {
+    font-size: 42px;
+}
+
 .block {
     background-color: #ffffff;
     border: 1px solid #ddd;
@@ -924,11 +1118,23 @@ li {
         width: 328px;
         /* Фиксированная ширина для блоков */
     }
+
+    .font-42 {
+        margin: 0px 10px 0px 10px;
+        text-align: center;
+    }
 }
 
 .sixth-wrapper {
     display: flex;
     justify-content: space-around;
+    margin-top: 9.67rem;
+}
+
+@media(max-width: 600px) {
+    .sixth-wrapper{
+        margin-top: 100px;
+    }
 }
 
 .sixth-screen-img-text-grup {
@@ -1013,30 +1219,35 @@ li {
 
 @media (max-width: 1500px) {
 
-    .earnings-container{
+    .earnings-container {
         margin-top: 4rem;
         margin: 30px 10px 0px 10px;
     }
+
     .text-section {
         display: flex;
         flex-direction: column;
         align-items: center;
         max-width: 800px;
     }
-    .line-26{
+
+    .line-26 {
         display: none;
     }
-    .font-74{
+
+    .font-74 {
         text-align: center;
     }
 
-    .text-section p{
+    .text-section p {
         margin-top: 10px;
     }
-    .earnings-reg-button{
+
+    .earnings-reg-button {
         margin-top: 20px;
     }
 }
+
 .sixth-screen-two-screen-text-group {
     margin-left: 5rem;
     display: flex;
@@ -1104,15 +1315,11 @@ li {
 
 }
 
-
-
 .text-section h1 {
     color: #000;
     font-size: 42px;
     margin-bottom: 1rem;
 }
-
-
 
 .image-section {
     display: flex;
@@ -1240,9 +1447,6 @@ li {
     margin: 15px 0;
 }
 
-
-
-
 /* ------------------------------------------------- */
 /* -------------------footer------------------------ */
 /* ------------------------------------------------- */
@@ -1270,6 +1474,10 @@ li {
     width: 321px;
 }
 
+.container-ul {
+    display: flex;
+}
+
 .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -1286,32 +1494,51 @@ li {
     max-width: 330px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    text-align: left;
 }
 
-.footer-p {
+.footer-section p,
+.footer-section li {
+    margin-bottom: 10px;
+    color: #FFFFFF;
+    text-align: left;
+}
+
+.footer-section a {
+    color: #FFFFFF;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+.footer-section a:hover {
+    color: #007BFF;
+}
+
+.line-22 {
+    margin-bottom: 26px;
+}
+
+.footer-list {
+    list-style-type: none;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     font-size: 18px;
     text-align: left;
     font-family: 'Montserrat', sans-serif;
+    margin-top: 0px;
 }
 
 .footer-section h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 26px;
 }
 
-
-
-.footer-section ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-section ul li a:hover {
-    text-decoration: underline;
+@media (max-width: 801px) {
+    .footer-container {
+        margin-top: 3rem;
+    }
 }
 
 @media (max-width: 768px) {

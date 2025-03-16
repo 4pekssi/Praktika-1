@@ -24,3 +24,16 @@ const slides = document.querySelectorAll('.slide');
         });
 
         setInterval(nextSlide, 5000);
+
+
+        document.querySelector('.gamb-ico').addEventListener('click', function() {
+            document.body.classList.toggle('no-scroll');
+            const menu = document.querySelector('.right-side-header-ul-li');
+            if (menu.style.display === 'flex') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+            menu.classList.toggle('active');
+        });
+        
