@@ -1,7 +1,12 @@
 /* Общие стили */
-/* *{
-    outline: 4px solid green !important;
-}  */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 
 .link {
     text-decoration: none;
@@ -16,7 +21,6 @@
 .font-18 {
     font-size: 18px;
 }
-
 
 .font-16 {
     font-size: 22px;
@@ -39,7 +43,6 @@ p {
     font-family: 'Montserrat', sans-serif;
 }
 
-
 body {
     background: #ffffff;
     margin: 0;
@@ -54,7 +57,6 @@ body {
     margin: 0 auto;
     background: #fff;
 }
-
 
 /* ------------------------------------------------- */
 /* ------------------one-screen--------------------- */
@@ -108,8 +110,6 @@ body {
     background-position: center;
 }
 
-
-
 .one-screen-right-side-header {
     display: flex;
     justify-content: space-between;
@@ -147,8 +147,6 @@ li {
     padding: 0;
     margin: 0;
 }
-
-
 
 .login-registration {
     background-color: #194DD2;
@@ -440,7 +438,6 @@ li {
         width: 100%;
         margin: 0px 10px 0px 10px;
         align-items: center;
-        ma
     }
 
     .font-32 {
@@ -461,7 +458,6 @@ li {
     .font-17 {
         text-align: center;
     }
-
 }
 
 .img-group {
@@ -473,8 +469,6 @@ li {
 .img-group-tow-box {
     display: flex;
 }
-
-
 
 .registration-button5 {
     margin-top: 66px;
@@ -543,8 +537,6 @@ li {
     border: 2px solid #0A51CB;
 }
 
-
-
 .two-screen-bottom-box {
     width: 473px;
     height: 408px;
@@ -579,9 +571,6 @@ li {
     width: 80%;
     height: 3rem;
 }
-
-
-
 
 /* ------------------------------------------------- */
 /* ------------------third-screen------------------- */
@@ -623,8 +612,6 @@ li {
         gap: 7rem;
     }
 }
-
-
 
 .h-text-and-button {
     display: flex;
@@ -776,8 +763,6 @@ li {
     }
 }
 
-
-
 /* ------------------------------------------------- */
 /* ------------------third-screen------------------- */
 /* ------------------------------------------------- */
@@ -913,8 +898,6 @@ li {
 /* ----------fifth-screen-statistics---------------- */
 /* ------------------------------------------------- */
 
-
-
 .fifth-screen {
     display: flex;
     justify-content: center;
@@ -926,7 +909,6 @@ li {
     /* или фиксированная высота */
     position: relative;
 }
-
 
 .statistics-container {
     margin-top: 3rem;
@@ -1040,6 +1022,7 @@ li {
 /* ------------------------------------------------- */
 /* ----------------sixth-screen--------------------- */
 /* ------------------------------------------------- */
+
 .sixth-screen {
     width: 100%;
     display: flex;
@@ -1445,6 +1428,52 @@ li {
 
 .faq-answer p {
     margin: 15px 0;
+}
+
+.font-36{
+    margin: 0px; 
+    font-size: 36px;
+}
+
+@media (max-width: 800px) {
+    .faq-container {
+        width: 600px;
+    }
+
+    .faq-text{
+        font-size: 16px;
+    }
+
+    .aaa {
+        max-width: 685px;
+    }
+
+}
+
+@media (max-width: 600px) {
+    .sixth-screen-four-text h1{
+        text-align: center;
+    }
+
+    .faq-container {
+        width: 100%;
+    }
+
+    .faq-text{
+        font-size: 16px;
+    }
+
+    .aaa {
+        width: 100%;
+        padding: 0px 20px 0px 20px;
+    }
+    .bbb h1{
+        font-size: 20px;
+    }
+    .bbb h3{
+        font-size: 16px;
+    }
+
 }
 
 /* ------------------------------------------------- */

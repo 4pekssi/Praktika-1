@@ -1,3 +1,6 @@
+
+// код для слайдер-карусели
+
 const slides = document.querySelectorAll('.slide');
         const indicators = document.querySelectorAll('.indicator');
         let currentIndex = 0;
@@ -25,6 +28,8 @@ const slides = document.querySelectorAll('.slide');
 
         setInterval(nextSlide, 5000);
 
+
+        // код для обработки клика по кнопке гамбургера 
 
         document.querySelector('.gamb-ico').addEventListener('click', function() {
             document.body.classList.toggle('no-scroll');
