@@ -35,7 +35,7 @@ const slides = document.querySelectorAll('.slide');
             document.body.classList.toggle('no-scroll');
             const menu = document.querySelector('.right-side-header-ul-li');
             if (menu.style.display === 'flex') {
-                menu.style.display = 'none';
+                menu.style.display = '';
             } else {
                 menu.style.display = 'flex';
             }
